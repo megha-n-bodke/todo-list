@@ -1,3 +1,4 @@
-body {
-  background-color: aqua;
+.todo-list {
+  width: 300px;
+  background-color: darkgray;
 }
