@@ -1,4 +1,21 @@
+body {
+  background-color: #f6f6f6;
+}
+
+.listContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .todo-list {
-  width: 300px;
-  background-color: darkgray;
+  width: 400px;
+  background-color: white;
+  box-shadow: 5px 5px 5px lightgrey;
+}
+
+.todolistItem {
+  list-style: none;
 }

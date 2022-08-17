@@ -1,7 +1,7 @@
 import './index.css';
 import Display from './display.js';
 
-const todoDisplay = new Display();
-console.log(Display);
-todoDisplay.display();
-console.log('webpack js');
+document.addEventListener('DOMContentLoaded', () => {
+  const todoDisplay = new Display();
+  todoDisplay.display();
+});
