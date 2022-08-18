@@ -22,7 +22,7 @@ class Display {
     const todoDiv = document.getElementById("todoDiv");
     const caption = document.createElement("p");
     caption.innerText = "Today Todod's";
-    /*  todoDiv.appendChild(caption); */
+
     /* loop through tasks */
     let str = "   Todays todo's";
     tasks.map((singleTask) => {
