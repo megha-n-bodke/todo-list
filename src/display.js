@@ -4,23 +4,23 @@ class Display {
     const tasks = [
       {
         index: 1,
-        description: "structure todo list",
+        description: 'structure todo list',
         completed: false,
       },
       {
         index: 2,
-        description: "add task todo list",
+        description: 'add task todo list',
         completed: false,
       },
       {
         index: 3,
-        description: "remove todo list",
+        description: 'remove todo list',
         completed: false,
       },
     ];
 
-    const todoDiv = document.getElementById("todoDiv");
-    const caption = document.createElement("p");
+    const todoDiv = document.getElementById('todoDiv');
+    const caption = document.createElement('p');
     caption.innerText = "Today Todod's";
 
     /* loop through tasks */
