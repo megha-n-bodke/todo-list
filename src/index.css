@@ -6,16 +6,31 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.listblock {
+  width: 60%;
+  border: 1px solid black;
+}
+.Todo-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .todo-list {
-  width: 400px;
+  width: 100%;
   background-color: white;
   box-shadow: 5px 5px 5px lightgrey;
 }
 
 .todolistItem {
   list-style: none;
+}
+input,
+button {
+  width: 100%;
+  height: 40px;
 }
