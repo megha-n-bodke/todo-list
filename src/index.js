@@ -1,15 +1,16 @@
-import "./index.css";
-import { addTask, taskName, clearBtn } from "./modules/addTask.js";
-import display from "./modules/display.js";
+import './index.css';
+import { addTask } from './modules/addTask.js';
+import display from './modules/display.js';
 
-const inputTask = document.getElementById("inputTask");
+const inputTask = document.getElementById('inputTask');
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   display();
 });
 
-inputTask.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
+inputTask.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
     addTask();
+    inputTask.value = '';
   }
 });

@@ -15,6 +15,7 @@ body {
   width: 60%;
   border: 1px solid black;
 }
+
 .Todo-section {
   display: flex;
   align-items: center;
@@ -22,6 +23,7 @@ body {
   margin-left: 20px;
   margin-right: 20px;
 }
+
 .todo-list {
   width: 100%;
   display: flex;
@@ -37,9 +39,11 @@ body {
   justify-content: space-between;
   margin-top: 20px;
 }
+
 .todolistItem {
   list-style: none;
 }
+
 .textfield {
   width: 99%;
   height: 40px;

@@ -1,11 +1,10 @@
-import display from "./display";
+import display from './display';
 
 const updateTask = (index, description) => {
   let tasks = [];
-  const containerDiv = document.getElementById("todoDiv");
-  let contentDiv;
+  const containerDiv = document.getElementById('todoDiv');
 
-  tasks = JSON.parse(localStorage.getItem("TaskList"));
+  tasks = JSON.parse(localStorage.getItem('TaskList'));
 
   const updateList = tasks.filter((singleTask) => {
     if (singleTask.index === index) {
@@ -13,8 +12,8 @@ const updateTask = (index, description) => {
     }
     return singleTask;
   });
-  localStorage.setItem("TaskList", JSON.stringify(updateList));
-  contentDiv = "";
+  localStorage.setItem('TaskList', JSON.stringify(updateList));
+  const contentDiv = '';
   containerDiv.innerHTML = contentDiv;
   display();
 };
