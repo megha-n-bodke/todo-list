@@ -1,13 +1,15 @@
 import "./index.css";
-import Display from "./display.js";
-import { addTask, taskName, clearBtn } from "./addTask.js";
+import { addTask, taskName, clearBtn } from "./modules/addTask.js";
+import display from "./modules/display.js";
+
+const inputTask = document.getElementById("inputTask");
 
 document.addEventListener("DOMContentLoaded", () => {
-  const todoDisplay = new Display();
-  todoDisplay.display();
+  display();
 });
 
-clearBtn.addEventListener("click", () => {
-  addTask();
-  alert("function called");
+inputTask.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    addTask();
+  }
 });
