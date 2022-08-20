@@ -20,6 +20,7 @@ inputTask.addEventListener("keydown", (e) => {
 
 clearBtn.addEventListener("click", () => {
   let selectedItems = [];
+  let indexes = [];
   console.log(
     document.querySelectorAll('input[type="checkbox"]:checked').length
   );
@@ -29,7 +30,9 @@ clearBtn.addEventListener("click", () => {
   selectedItems.map((item) => {
     // console.log(item[0].getAttribute("id"));
     for (let i = 0; i < item.length; i++) {
-      console.log(item[i].getAttribute("id"));
+      //console.log(item[i].getAttribute("id"));
+      /*  indexes = indexes.push(item[i].getAttribute("id"));
+      console.log(indexes) */
       clearCompleted(item[i].getAttribute("id"));
     }
   });
