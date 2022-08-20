@@ -1,10 +1,10 @@
-import display from "./display.js";
+import display from './display.js';
 
 const clearCompleted = () => {
-  const containerDiv = document.getElementById("todoDiv");
+  const containerDiv = document.getElementById('todoDiv');
 
   let checkedTasks = [];
-  checkedTasks = JSON.parse(localStorage.getItem("TaskList"));
+  checkedTasks = JSON.parse(localStorage.getItem('TaskList'));
   for (let i = checkedTasks.length - 1; i >= 0; i -= 1) {
     if (checkedTasks[i].completed === true) {
       checkedTasks.splice(i, 1);
@@ -19,8 +19,8 @@ const clearCompleted = () => {
     return singleItem;
   });
 
-  localStorage.setItem("TaskList", JSON.stringify(updateIndex));
-  const contentDiv = "";
+  localStorage.setItem('TaskList', JSON.stringify(updateIndex));
+  const contentDiv = '';
   containerDiv.innerHTML = contentDiv;
   display();
 };
