@@ -1,19 +1,28 @@
-const clearCompleted = (index) => {
-  console.log(index);
+import display from "./display.js";
+
+const clearCompleted = () => {
+  const containerDiv = document.getElementById("todoDiv");
+
   let checkedTasks = [];
-  checkedTasks = JSON.parse(localStorage.getItem('TaskList'));
-  checkedTasks.splice(index, 1);
-  localStorage.setItem('TaskList', JSON.stringify(checkedTasks));
+  checkedTasks = JSON.parse(localStorage.getItem("TaskList"));
+  for (let i = checkedTasks.length - 1; i >= 0; i -= 1) {
+    if (checkedTasks[i].completed === true) {
+      checkedTasks.splice(i, 1);
+    }
+  }
 
-  // displayBook.display();
+  /* checking indexes with the local storage array object index */
+  const updateIndex = checkedTasks.filter((singleItem, index) => {
+    if (singleItem.index !== index) {
+      singleItem.index = index;
+    }
+    return singleItem;
+  });
 
-  /*  let checkboxCollection = [];
-  console.log("btn clicked"); */
-  /* const check = document.getElementById("index"); */
-  /*   checkboxCollection = checkboxCollection.push(index);
-  checkboxCollection.map((i) => {
-    console.log(i);
-  }); */
+  localStorage.setItem("TaskList", JSON.stringify(updateIndex));
+  const contentDiv = "";
+  containerDiv.innerHTML = contentDiv;
+  display();
 };
 
 export default clearCompleted;

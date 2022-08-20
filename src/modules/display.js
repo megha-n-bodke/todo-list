@@ -49,8 +49,6 @@ const display = () => {
       label.style.textDecoration = 'none';
     }
 
-    // clear checked todos
-
     const editInput = document.createElement('input');
     editInput.value = description;
     editInput.style.display = 'none';
