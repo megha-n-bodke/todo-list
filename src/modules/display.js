@@ -30,12 +30,14 @@ const display = () => {
 
     /* checkbox event */
     checkBox.addEventListener("click", () => {
-      const taskName = label.innerHTML;
-      label.style.textDecoration = "line-through";
+      if (checkBox.checked === true) {
+        label.style.textDecoration = "line-through";
+      } else {
+        label.style.textDecoration = "none";
+      }
 
       //update activity status
-
-      checkStatus(index, description, completed);
+      checkStatus(index, description, completed, checkBox);
     });
 
     const editInput = document.createElement("input");
