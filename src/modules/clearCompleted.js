@@ -1,12 +1,11 @@
-import display from "./display.js";
 const clearCompleted = (index) => {
   console.log(index);
   let checkedTasks = [];
-  checkedTasks = JSON.parse(localStorage.getItem("TaskList"));
+  checkedTasks = JSON.parse(localStorage.getItem('TaskList'));
   checkedTasks.splice(index, 1);
-  localStorage.setItem("TaskList", JSON.stringify(checkedTasks));
+  localStorage.setItem('TaskList', JSON.stringify(checkedTasks));
 
-  //displayBook.display();
+  // displayBook.display();
 
   /*  let checkboxCollection = [];
   console.log("btn clicked"); */

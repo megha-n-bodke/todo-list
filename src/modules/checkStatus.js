@@ -1,5 +1,5 @@
 const checkStatus = (index, desc, completed, checkbox) => {
-  const tasks = JSON.parse(localStorage.getItem("TaskList"));
+  const tasks = JSON.parse(localStorage.getItem('TaskList'));
 
   if (checkbox.checked === true) {
     const updateList = tasks.filter((singleTask) => {
@@ -8,7 +8,7 @@ const checkStatus = (index, desc, completed, checkbox) => {
       }
       return singleTask;
     });
-    localStorage.setItem("TaskList", JSON.stringify(updateList));
+    localStorage.setItem('TaskList', JSON.stringify(updateList));
   } else if (checkbox.checked === false) {
     const updateList = tasks.filter((singleTask) => {
       if (singleTask.index === index) {
@@ -16,7 +16,7 @@ const checkStatus = (index, desc, completed, checkbox) => {
       }
       return singleTask;
     });
-    localStorage.setItem("TaskList", JSON.stringify(updateList));
+    localStorage.setItem('TaskList', JSON.stringify(updateList));
   }
 };
 

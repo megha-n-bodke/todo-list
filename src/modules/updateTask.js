@@ -1,4 +1,4 @@
-import display from './display';
+import display from './display.js';
 
 const updateTask = (index, description) => {
   let tasks = [];

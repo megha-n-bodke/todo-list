@@ -1,80 +1,78 @@
-import checkStatus from "./checkStatus";
-import clearCompleted from "./clearCompleted";
-import remove from "./removeTask";
-import updateTask from "./updateTask";
+import checkStatus from './checkStatus.js';
+import remove from './removeTask.js';
+import updateTask from './updateTask.js';
 
 const display = () => {
   let tasks = [];
-  let checkboxCollection = [];
 
-  if (localStorage.getItem("TaskList") === null) {
-    localStorage.setItem("TaskList", JSON.stringify(tasks));
+  if (localStorage.getItem('TaskList') === null) {
+    localStorage.setItem('TaskList', JSON.stringify(tasks));
   } else {
-    tasks = JSON.parse(localStorage.getItem("TaskList"));
+    tasks = JSON.parse(localStorage.getItem('TaskList'));
   }
 
-  const containerDiv = document.getElementById("todoDiv");
+  const containerDiv = document.getElementById('todoDiv');
   tasks.map((singleTask) => {
-    let { index, description, completed } = singleTask;
+    const { index, description, completed } = singleTask;
 
-    const innerDiv = document.createElement("div");
-    innerDiv.className = "list-container";
-    const checkBox = document.createElement("input");
-    const label = document.createElement("label");
-    const editIcon = document.createElement("i");
-    editIcon.className = "fa fa-ellipsis-v";
-    const deletetIcon = document.createElement("i");
-    deletetIcon.className = "fa fa-trash";
-    deletetIcon.style.display = "none";
-    checkBox.type = "checkbox";
-    checkBox.setAttribute("id", index);
+    const innerDiv = document.createElement('div');
+    innerDiv.className = 'list-container';
+    const checkBox = document.createElement('input');
+    const label = document.createElement('label');
+    const editIcon = document.createElement('i');
+    editIcon.className = 'fa fa-ellipsis-v';
+    const deletetIcon = document.createElement('i');
+    deletetIcon.className = 'fa fa-trash';
+    deletetIcon.style.display = 'none';
+    checkBox.type = 'checkbox';
+    checkBox.setAttribute('id', index);
     label.innerText = description;
 
     /* checkbox event */
-    checkBox.addEventListener("click", () => {
+    checkBox.addEventListener('click', () => {
       if (checkBox.checked === true) {
-        label.style.textDecoration = "line-through";
+        label.style.textDecoration = 'line-through';
       } else {
-        label.style.textDecoration = "none";
+        label.style.textDecoration = 'none';
       }
 
-      //update activity status
+      // update activity status
       checkStatus(index, description, completed, checkBox);
     });
 
-    //on page refresh checkbox remains checked if it is checked
+    // on page refresh checkbox remains checked if it is checked
     if (completed === true) {
       checkBox.checked = true;
-      label.style.textDecoration = "line-through";
+      label.style.textDecoration = 'line-through';
     } else {
       checkBox.checked = false;
-      label.style.textDecoration = "none";
+      label.style.textDecoration = 'none';
     }
 
-    //clear checked todos
+    // clear checked todos
 
-    const editInput = document.createElement("input");
+    const editInput = document.createElement('input');
     editInput.value = description;
-    editInput.style.display = "none";
-    editInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
+    editInput.style.display = 'none';
+    editInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
         updateTask(index, editInput.value);
-        editIcon.style.display = "block";
-        deletetIcon.style.display = "none";
-        editInput.style.display = "none";
-        checkBox.style.display = "block";
-        label.style.display = "block";
+        editIcon.style.display = 'block';
+        deletetIcon.style.display = 'none';
+        editInput.style.display = 'none';
+        checkBox.style.display = 'block';
+        label.style.display = 'block';
       }
     });
-    editIcon.addEventListener("click", () => {
-      editIcon.style.display = "none";
-      deletetIcon.style.display = "block";
-      editInput.style.display = "block";
-      checkBox.style.display = "none";
-      label.style.display = "none";
+    editIcon.addEventListener('click', () => {
+      editIcon.style.display = 'none';
+      deletetIcon.style.display = 'block';
+      editInput.style.display = 'block';
+      checkBox.style.display = 'none';
+      label.style.display = 'none';
     });
 
-    deletetIcon.addEventListener("click", () => {
+    deletetIcon.addEventListener('click', () => {
       remove(index);
     });
 
