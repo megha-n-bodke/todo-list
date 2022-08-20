@@ -1,9 +1,11 @@
 import checkStatus from "./checkStatus";
+import clearCompleted from "./clearCompleted";
 import remove from "./removeTask";
 import updateTask from "./updateTask";
 
 const display = () => {
   let tasks = [];
+  let checkboxCollection = [];
 
   if (localStorage.getItem("TaskList") === null) {
     localStorage.setItem("TaskList", JSON.stringify(tasks));
@@ -39,6 +41,17 @@ const display = () => {
       //update activity status
       checkStatus(index, description, completed, checkBox);
     });
+
+    //on page refresh checkbox remains checked if it is checked
+    if (completed === true) {
+      checkBox.checked = true;
+      label.style.textDecoration = "line-through";
+    } else {
+      checkBox.checked = false;
+      label.style.textDecoration = "none";
+    }
+
+    //clear checked todos
 
     const editInput = document.createElement("input");
     editInput.value = description;

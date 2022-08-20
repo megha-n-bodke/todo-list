@@ -17,7 +17,6 @@ const checkStatus = (index, desc, completed, checkbox) => {
       return singleTask;
     });
     localStorage.setItem("TaskList", JSON.stringify(updateList));
-    console.log(tasks);
   }
 };
 
